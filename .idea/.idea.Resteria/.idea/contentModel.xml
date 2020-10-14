@@ -15,6 +15,7 @@
           <e p="BasicMeshData.cs" t="Include" />
           <e p="Chunk.cs" t="Include" />
           <e p="Direction.cs" t="Include" />
+          <e p="Player.cs" t="Include" />
           <e p="Terrain.cs" t="Include" />
           <e p="VoxelData.cs" t="Include" />
           <e p="VoxelRender.cs" t="Include" />

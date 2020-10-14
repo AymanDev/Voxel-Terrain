@@ -7,8 +7,8 @@ public class TerrainEditor : Editor {
         base.OnInspectorGUI();
         var terrain = (Terrain) target;
 
-        // if (GUILayout.Button("Update terrain")) {
-            // terrain.Start();
-        // }
+        GUILayout.Label("Maximum possible chunks: " + terrain.MaximumChunksCount);
+        GUILayout.Label("Active chunks: " + terrain.ActiveChunksCount);
+        GUILayout.Label("Cached chunks: " + terrain.CachedChunksCount);
     }
 }

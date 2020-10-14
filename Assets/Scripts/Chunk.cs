@@ -1,24 +1,41 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.Profiling;
 
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 public class Chunk : MonoBehaviour {
     [SerializeField] [ReadOnly] private VoxelRender voxelRender;
-    [SerializeField] [ReadOnly] private VoxelData voxelData;
+    [SerializeField] private VoxelData voxelData;
+    [SerializeField] private MeshCollider meshCollider;
 
-
-    public async UniTaskVoid GenerateChunk(float noiseScale, int chunkSize, int chunkHeight, Vector3 chunkPosition) {
-        voxelData = await RequestVoxels(noiseScale, chunkSize, chunkHeight, chunkPosition);
-        await UniTask.Run(() => voxelRender.GenerateVoxelMesh(voxelData));
-        voxelRender.UpdateMesh();
+    public void PrepareChunkForCaching() {
+        voxelRender.meshRenderer.enabled = false;
+        // meshCollider.isTrigger = true;
     }
 
-    private static UniTask<VoxelData> RequestVoxels(float noiseScale, int chunkSize, int chunkHeight,
-        Vector3 chunkPosition) {
-        return UniTask.Run(() => GenerateVoxels(noiseScale, chunkSize, chunkHeight, chunkPosition));
+    public void PrepareChunkForUnCaching() {
+        voxelRender.meshRenderer.enabled = true;
+        // meshCollider.isTrigger = false;
+    }
+
+    public void GenerateChunk(float noiseScale, int chunkSize, int chunkHeight) {
+        var pos = transform.localPosition;
+        UniTask.Run(() => TryGenerateVoxels(noiseScale, chunkSize, chunkHeight, pos)).Forget();
+    }
+
+    private async UniTaskVoid TryGenerateVoxels(float noiseScale, int chunkSize, int chunkHeight, Vector3 position) {
+        voxelData = await UniTask.RunOnThreadPool(() => GenerateVoxels(noiseScale, chunkSize, chunkHeight, position));
+
+        UniTask.Run(() => TryGenerateMesh(voxelData)).Forget();
+    }
+
+    private async UniTaskVoid TryGenerateMesh(VoxelData data) {
+        var render = voxelRender;
+        var (verts, tris) = await UniTask.RunOnThreadPool(() => render.GenerateVoxelMesh(data));
+        render.UpdateMesh(verts, tris);
+        meshCollider.sharedMesh = render.Mesh;
     }
 
     private static VoxelData GenerateVoxels(float noiseScale, int chunkSize, int chunkHeight, Vector3 position) {

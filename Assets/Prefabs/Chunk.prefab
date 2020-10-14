@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5855738142007486799}
   - component: {fileID: 5855738142007486797}
   - component: {fileID: -4899305647439285540}
+  - component: {fileID: 9127332026844633611}
   m_Layer: 0
   m_Name: Chunk
   m_TagString: Untagged
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 150e4d797f78ef448bf4f42eda47f06a, type: 2}
+  - {fileID: 2100000, guid: 0f1a13df66313ae4f8f0aaae2fdd32bf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -95,10 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88342263b44b30f45b28602ac17a1a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chunkSize: 16
   voxelRender: {fileID: -4899305647439285540}
-  noiseScale: 0.05
-  threshold: 0.5
+  meshCollider: {fileID: 9127332026844633611}
 --- !u!114 &-4899305647439285540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,3 +110,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07e767fc0d534419bf3beeac0cdbdb84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshFilter: {fileID: 5855738142007486792}
+  meshRenderer: {fileID: 5855738142007486799}
+--- !u!64 &9127332026844633611
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5855738142007486796}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: -1
+  m_Mesh: {fileID: 0}
