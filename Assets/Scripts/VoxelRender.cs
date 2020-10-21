@@ -11,7 +11,7 @@ public class VoxelRender : MonoBehaviour {
 
     public Mesh Mesh => meshFilter.mesh;
 
-    public (List<Vector3> vertices, ICollection<int> triangles) GenerateVoxelMesh(VoxelData data) {
+    public (List<Vector3> vertices, ICollection<int> triangles) GenerateVoxelMesh(ChunkData data) {
         var verts = new List<Vector3>();
         var tris = new List<int>();
 
@@ -30,7 +30,7 @@ public class VoxelRender : MonoBehaviour {
         return (verts, tris);
     }
 
-    public static void MakeCube(int x, int y, int z, VoxelData data, List<Vector3> vertices,
+    public static void MakeCube(int x, int y, int z, ChunkData data, List<Vector3> vertices,
         ICollection<int> triangles) {
         var position = new Vector3(x, y, z);
         for (var i = 0; i < 6; i++) {

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -10,22 +13,23 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1971ff7c-ccc2-4318-99b8-c4782300dc0c" name="Default Changelist" comment="Init">
+    <list default="true" id="1971ff7c-ccc2-4318-99b8-c4782300dc0c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Terrain/ChunkGenerateVoxelsJob.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Terrain/ChunkGenerateVoxelsJob.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/VoxelUtils.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/VoxelUtils.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/terrain.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Resteria/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Resteria/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Resteria/.idea/discord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Resteria/.idea/discord.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Resteria/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Resteria/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Resteria/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Resteria/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Editor/TerrainEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/TerrainEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Block.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Block.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Chunk.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Chunk.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Chunk.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Chunk.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Terrain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Terrain.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Terrain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Terrain/TerrainManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Terrain.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Terrain/TerrainManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/VoxelData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ChunkData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/VoxelData.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ChunkData.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/VoxelRender.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/VoxelRender.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,25 +40,32 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask@da0e654e7d/Runtime/UniTask.Factory.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4BEC26B5-CBC7-4715-8442-F1499E984732/19/d4b3c72c/Object.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/2f/23feae5f/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/2b/d11cf773/Transform.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collections@0.12.0-preview.13/Unity.Collections/UnsafeHashMap.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/bb/719799d3/Gizmos.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/e9/d3b5829e/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/2e/d007a8b0/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/82/77a5b820/IJobParallelForExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4BEC26B5-CBC7-4715-8442-F1499E984732/6e/718b9a4e/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask@da0e654e7d/Runtime/UniTask.Factory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/a2/815f80fb/NativeArray`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/9c/285e0cb3/JobHandle.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/2f/23feae5f/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4BEC26B5-CBC7-4715-8442-F1499E984732/05/64b1ecf4/Task.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/b5/07eae126/Time.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/862B9365-843C-4BF1-BA93-210C124BB523/1d/64ff3dd2/Queue`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collections@0.12.0-preview.13/Unity.Collections/NativeHashMap.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ChunkData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Chunk.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/bb/719799d3/Gizmos.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/e9/d3b5829e/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/08/3a9993e5/Mesh.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/2e/d007a8b0/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4BEC26B5-CBC7-4715-8442-F1499E984732/4c/74a43fa5/Action.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collections@0.12.0-preview.13/Unity.Collections/NativeList.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/0f/08c30298/Component.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4BEC26B5-CBC7-4715-8442-F1499E984732/6e/718b9a4e/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4BEC26B5-CBC7-4715-8442-F1499E984732/86/6653b0e2/Int32.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4BEC26B5-CBC7-4715-8442-F1499E984732/cb/d9ee10b1/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Terrain.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Terrain/TerrainManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -62,21 +73,33 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/MeshData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Block.cs" />
         <option value="$PROJECT_DIR$/Assets/Editor/ChunkScriptEditor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Voxel.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Direction.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BasicMeshData.cs" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/Assets/Editor/TerrainEditor.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/VoxelRender.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/VoxelData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Terrain.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TerrainUpdateJob.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/terrain/TerrainManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/terrain/Terrain.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/terrain/TerrainUpdateJob.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Terrain/TerrainUpdateJob.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Voxel.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/VoxelConsts.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/VoxelUtils.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/VoxelData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Editor/TerrainEditor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Terrain/TerrainManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ChunkData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Chunk.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Terrain/ChunkGenerateVoxelsJob.cs" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="1imjCdooWzoTLOVT1EYiTcuMrLu" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -88,7 +111,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="discord-project" />
+    <property name="settings.editor.selected.configurable" value="SolutionBuilderGeneralOptionsPageId" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
@@ -132,7 +155,9 @@
       <workItem from="1602609067773" duration="3191000" />
       <workItem from="1602616916571" duration="444000" />
       <workItem from="1602663731675" duration="15280000" />
-      <workItem from="1602684275352" duration="12887000" />
+      <workItem from="1602684275352" duration="13075000" />
+      <workItem from="1602758082736" duration="11939000" />
+      <workItem from="1603286757145" duration="5410000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1602676756445</created>
@@ -141,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602676756445</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="UniTask implementation for optimization">
+      <created>1602698529719</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1602698529719</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
@@ -161,7 +193,8 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Init" />
-    <option name="LAST_COMMIT_MESSAGE" value="Init" />
+    <MESSAGE value="UniTask implementation for optimization" />
+    <option name="LAST_COMMIT_MESSAGE" value="UniTask implementation for optimization" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="160" key="#Plugins" timestamp="1602520652228">
@@ -236,22 +269,23 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.3.right/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602589161886" />
-    <state x="765" y="192" key="RiderGenerateDialog" timestamp="1602589418248">
+    <state x="765" y="192" key="RiderGenerateDialog" timestamp="1602771339694">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="192" key="RiderGenerateDialog/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602589418248" />
-    <state x="40" y="296" width="1240" height="718" key="SettingsEditor" timestamp="1602690823079">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="765" y="192" key="RiderGenerateDialog/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602771339694" />
+    <state x="3480" y="556" width="1240" height="718" key="SettingsEditor" timestamp="1603287769849">
+      <screen x="3440" y="260" width="1920" height="1040" />
     </state>
     <state x="40" y="296" width="1240" height="718" key="SettingsEditor/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602690823079" />
-    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1602698292638">
+    <state x="3480" y="556" key="SettingsEditor/0.0.3440.1400/3440.260.1920.1040@3440.260.1920.1040" timestamp="1603287769849" />
+    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1602771359979">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602698292638" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1602676936069">
+    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602771359979" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1602698533265">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602676936069" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602698533265" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1602673579027">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -260,13 +294,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="833" y="253" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602605270424" />
-    <state x="627" y="193" width="666" height="654" key="find.popup" timestamp="1602698360866">
+    <state x="627" y="193" width="666" height="654" key="find.popup" timestamp="1602759305343">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="627" y="193" width="666" height="654" key="find.popup/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602698360866" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602664911573">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="627" y="193" width="666" height="654" key="find.popup/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602759305343" />
+    <state x="4063" y="485" width="672" height="678" key="search.everywhere.popup" timestamp="1603295187507">
+      <screen x="3440" y="260" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602664911573" />
+    <state x="4063" y="485" width="672" height="678" key="search.everywhere.popup/0.0.3440.1400/3440.260.1920.1040@3440.260.1920.1040" timestamp="1603295187507" />
   </component>
 </project>

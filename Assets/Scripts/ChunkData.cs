@@ -1,18 +1,19 @@
 ﻿using System;
 
+
 [Serializable]
-public class VoxelData {
+public class ChunkData {
     private readonly int[,,] _data;
 
     public int Width => _data.GetLength(0);
     public int Height => _data.GetLength(1);
     public int Depth => _data.GetLength(2);
 
-    public VoxelData(int chunkSize, int chunkHeight) {
+    public ChunkData(int chunkSize, int chunkHeight) {
         _data = new int[chunkSize, chunkHeight, chunkSize];
     }
 
-    public VoxelData(int[,,] data) {
+    public ChunkData(int[,,] data) {
         _data = data;
     }
 
@@ -45,13 +46,14 @@ public class VoxelData {
         return voxels;
     }
 
-    public VoxelData GetVoxelDataChunk(int vX, int vY, int vZ, int chunkSize) {
-        return new VoxelData(GetVoxelChunk(vX, vY, vZ, chunkSize));
+    public ChunkData GetVoxelDataChunk(int vX, int vY, int vZ, int chunkSize) {
+        return new ChunkData(GetVoxelChunk(vX, vY, vZ, chunkSize));
     }
 
     public int GetNeighbor(int x, int y, int z, Direction dir) {
-        var offsetToCheck = _offsets[(int) dir];
-        var neighborCoord = new DataCoordinate(x + offsetToCheck.x, y + offsetToCheck.y, z + offsetToCheck.z);
+        var offsetToCheck = VoxelUtils.Offsets[(int) dir];
+        var neighborCoord =
+            new VoxelUtils.DataCoordinate(x + offsetToCheck.x, y + offsetToCheck.y, z + offsetToCheck.z);
 
         if (neighborCoord.x < 0 || neighborCoord.x >= Width ||
             neighborCoord.y < 0 || neighborCoord.y >= Height ||
@@ -62,25 +64,6 @@ public class VoxelData {
         return GetVoxel(neighborCoord.x, neighborCoord.y, neighborCoord.z);
     }
 
-    private struct DataCoordinate {
-        public int x;
-        public int y;
-        public int z;
-
-        public DataCoordinate(int x, int y, int z) {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-        }
-    }
 
     // Order follows from Direction enum
-    private readonly DataCoordinate[] _offsets = {
-        new DataCoordinate(0, 0, 1),
-        new DataCoordinate(1, 0, 0),
-        new DataCoordinate(0, 0, -1),
-        new DataCoordinate(-1, 0, 0),
-        new DataCoordinate(0, 1, 0),
-        new DataCoordinate(0, -1, 0),
-    };
 }

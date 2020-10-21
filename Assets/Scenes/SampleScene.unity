@@ -316,16 +316,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chunkPrefab: {fileID: 5855738142007486796, guid: 0ee3707c18048a44a9ed8de597a2aeb3, type: 3}
-  loadChunkDistance: 12
-  unloadChunkDistance: 20
-  chunkHeight: 256
-  chunkSize: 32
   noiseScale: 0.001
   meshFilter: {fileID: 1323790065}
   playerTransform: {fileID: 197389063}
   chunks:
     m_Keys: []
     m_Values: []
+  config:
+    loadChunkDistance: 1
+    unloadChunkDistance: 10
+    chunkSize: 16
+    chunkHeight: 256
 --- !u!4 &1323790062
 Transform:
   m_ObjectHideFlags: 0
