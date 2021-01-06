@@ -12,17 +12,24 @@
           <e p="TerrainEditor.cs" t="Include" />
         </e>
         <e p="Scripts" t="Include">
-          <e p="BasicMeshData.cs" t="Include" />
-          <e p="Chunk.cs" t="Include" />
-          <e p="ChunkData.cs" t="Include" />
-          <e p="Direction.cs" t="Include" />
+          <e p="JobHandleExtended.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="terrain" t="Include">
-            <e p="ChunkGenerateVoxelsJob.cs" t="Include" />
+            <e p="Chunk.cs" t="Include" />
+            <e p="ChunkData.cs" t="Include" />
+            <e p="Direction.cs" t="Include" />
+            <e p="Mesh" t="Include">
+              <e p="ChunkGenerateMeshJob.cs" t="Include" />
+            </e>
             <e p="TerrainManager.cs" t="Include" />
+            <e p="Voxel" t="Include">
+              <e p="BasicMeshData.cs" t="Include" />
+              <e p="ChunkGenerateVoxelsJob.cs" t="Include" />
+              <e p="VoxelData.cs" t="Include" />
+              <e p="VoxelRender.cs" t="Include" />
+              <e p="VoxelUtils.cs" t="Include" />
+            </e>
           </e>
-          <e p="VoxelRender.cs" t="Include" />
-          <e p="VoxelUtils.cs" t="Include" />
         </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />

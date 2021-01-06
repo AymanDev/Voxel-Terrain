@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using NUnit.Framework;
 using Unity.Collections;
 using Unity.Jobs;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Profiling;
 using UnityEngine.Rendering;
 
 namespace Terrain {
@@ -17,41 +20,49 @@ namespace Terrain {
             public int chunkSize;
             public int chunkHeight;
 
-            public int MaximumChunksCount => unloadChunkDistance * unloadChunkDistance * 2;
+            public int maximumParallelChunksLoading;
+
+            public int maximumChunksModifier;
+            public int MaximumChunksCount => unloadChunkDistance * unloadChunkDistance * maximumChunksModifier;
         }
 
         [SerializeField] private GameObject chunkPrefab;
 
-        [Header("Map generator settings")] [SerializeField] [Range(0, 1)]
+        [Header("Map generator settings")] [SerializeField] [UnityEngine.Range(0, 1)]
         private float noiseScale = 0.05f;
 
         [SerializeField] private MeshFilter meshFilter;
         [SerializeField] private Transform playerTransform;
 
-        [SerializeField] [ReadOnly]
-        private SerializedDictionary<Vector3, Chunk> chunks = new SerializedDictionary<Vector3, Chunk>();
-
         [SerializeField] [ReadOnly] private Queue<Chunk> cachedChunks = new Queue<Chunk>();
+        [SerializeField] [ReadOnly] private List<Chunk> readyToLoadChunks = new List<Chunk>();
+        [SerializeField] [ReadOnly] private List<Chunk> loadingChunks = new List<Chunk>();
+        [SerializeField] [ReadOnly] private List<Chunk> loadedChunks = new List<Chunk>();
 
-        public int ActiveChunksCount => chunks.Count;
+        public int ActiveChunksCount => loadedChunks.Count;
         public int CachedChunksCount => cachedChunks.Count;
+        public int ReadyToLoadChunksCount => readyToLoadChunks.Count;
+        public int LoadingChunksCount => loadingChunks.Count;
 
         public Config config;
 
-        public bool chunksAreLoading = false;
-        private JobHandle _jobHandle;
-        private NativeArray<Chunk.Data> _chunkDataArray;
+        public static TerrainManager instance;
 
-        public bool jobsCompleted = false;
-
+        public bool showChunksBoundingBox;
 
         private void Awake() {
+            instance = this;
+
+            ResetTerrain();
             if (config.unloadChunkDistance <= config.loadChunkDistance) {
                 throw new Exception("Unload chunk distance must be greater than load distance!");
             }
 
             PrepareChunkCache();
+
+            StartCoroutine(ChunksUpdate());
         }
+
 
         private void PrepareChunkCache() {
             for (var i = 0; i < config.MaximumChunksCount; i++) {
@@ -59,145 +70,147 @@ namespace Terrain {
             }
         }
 
-        private void SpawnChunksAroundAndLoad(int originX, int originZ, int radius) {
+        private IEnumerator ChunksUpdate() {
+            while (true) {
+                TryToCacheChunksPool(loadedChunks);
+
+                if (readyToLoadChunks.Count > 0) {
+                    TryToCacheChunksPool(readyToLoadChunks);
+                }
+
+                var playerChunkPosition = GetPlayerChunkPosition();
+                var maximumChunksCount = config.MaximumChunksCount;
+                if (loadedChunks.Count < maximumChunksCount) {
+                    SpawnChunksAround(playerChunkPosition, config.loadChunkDistance);
+                }
+
+
+                yield return new WaitForSecondsRealtime(1f);
+            }
+        }
+
+        private void SpawnChunksAround(Vector3 origin, int radius) {
+            var playerPos = GetPlayerChunkPosition();
             for (var x = -radius; x < radius; x++) {
                 for (var z = -radius; z < radius; z++) {
                     var position = transform.localPosition +
-                                   new Vector3((originX + x) * config.chunkSize, 0, (originZ + z) * config.chunkSize);
-                    if (chunks.ContainsKey(position)) {
+                                   new Vector3((origin.x + x), 0, (origin.z + z));
+                    if (Vector3.Distance(playerPos, position) > config.loadChunkDistance) {
                         continue;
                     }
 
-                    var chunk = cachedChunks.Count > 0
-                        ? SpawnCachedChunk(cachedChunks.Dequeue(), position)
-                        : SpawnActiveChunk(position);
-                    LoadChunk(chunk);
+
+                    position *= config.chunkSize;
+
+                    var loadedChunk = GetChunkInPosition(loadedChunks, position);
+                    var loadingChunk = GetChunkInPosition(loadingChunks, position);
+                    var readyToLoadChunk = GetChunkInPosition(readyToLoadChunks, position);
+                    if (loadedChunk || readyToLoadChunk || loadingChunk || cachedChunks.Count == 0) {
+                        continue;
+                    }
+
+                    var chunk = SpawnCachedChunk(cachedChunks.Dequeue(), position);
+                    readyToLoadChunks.Add(chunk);
                 }
             }
         }
 
-        private Chunk SpawnChunk(Vector3 position) {
+        private Chunk InstantiateChunk(Vector3 position) {
             var chunkObj = Instantiate(chunkPrefab, transform);
             chunkObj.transform.localPosition = position;
             var chunk = chunkObj.GetComponent<Chunk>();
             return chunk;
         }
 
-        private Chunk SpawnActiveChunk(Vector3 position) {
-            var chunk = SpawnChunk(position);
-            chunks.Add(position, chunk);
-            return chunk;
-        }
-
         private void SpawnCacheReadyChunk(Vector3 position) {
-            var chunk = SpawnChunk(position);
-            chunk.PrepareChunkForCaching();
+            var chunk = InstantiateChunk(position);
+            chunk.DeactivateChunk();
             cachedChunks.Enqueue(chunk);
         }
 
         private Chunk SpawnCachedChunk(Chunk chunk, Vector3 position) {
+            chunk.DeactivateChunk();
             chunk.transform.localPosition = position;
-            chunk.PrepareChunkForUnCaching();
-            chunks.Add(position, chunk);
             return chunk;
         }
 
         private void LoadChunk(Chunk chunk) {
-            // chunk.GenerateChunk(noiseScale, config.chunkSize, config.chunkHeight);
+            loadedChunks.Add(chunk);
+            chunk.UpdateChunk(noiseScale, config.chunkSize, config.chunkHeight);
         }
 
         private void CacheChunk(Chunk chunk) {
-            chunks.Remove(chunk.transform.localPosition);
-            chunk.PrepareChunkForCaching();
+            if (loadingChunks.Contains(chunk)) {
+                return;
+            }
+
+            if (readyToLoadChunks.Contains(chunk)) {
+                readyToLoadChunks.Remove(chunk);
+            }
+
+            loadedChunks.Remove(chunk);
+            chunk.DeactivateChunk();
             cachedChunks.Enqueue(chunk);
         }
 
         public Vector3 GetPlayerChunkPosition() {
-            var playerChunkPosition = playerTransform.localPosition / config.chunkSize;
-            playerChunkPosition.Set(Mathf.RoundToInt(playerChunkPosition.x), 0,
-                Mathf.RoundToInt(playerChunkPosition.z));
-            return playerChunkPosition;
+            return GetChunkPosition(playerTransform.position);
         }
 
-        public Chunk GetPlayerChunk() {
-            return chunks[GetPlayerChunkPosition()];
+        public Vector3 GetChunkPosition(Vector3 position) {
+            var pos = position / config.chunkSize;
+            pos.Set(Mathf.RoundToInt(pos.x), 0,
+                Mathf.RoundToInt(pos.z));
+            return pos;
         }
 
+        public static Chunk GetChunkInPosition(List<Chunk> chunks, Vector3 position) {
+            return chunks.Find(c => c.transform.position.Equals(position));
+        }
 
-        public void StartJobLoadingChunk() {
-            Debug.Log("Starting job");
-
-            jobsCompleted = false;
-            chunksAreLoading = true;
-
-
-            var chunkList = cachedChunks.ToList();
-            _chunkDataArray = new NativeArray<Chunk.Data>(chunkList.Count, Allocator.TempJob);
-            for (var i = 0; i < chunkList.Count; i++) {
-                var chunk = chunkList[i];
-                _chunkDataArray[i] =
-                    new Chunk.Data {
-                        Position = chunk.transform.localPosition,
-                        ChunkHeight = config.chunkHeight,
-                        ChunkSize = config.chunkSize,
-                        NoiseScale = noiseScale
-                    };
+        private void ResetTerrain() {
+            foreach (var chunk in loadedChunks) {
+                Destroy(chunk.gameObject);
             }
 
-            var job = new ChunkGenerateVoxelsJob {
-                ChunkDataArray = _chunkDataArray,
-            };
-            _jobHandle = job.Schedule(chunkList.Count, 1);
+            foreach (var cachedChunk in cachedChunks.Where(cachedChunk => cachedChunk)) {
+                Destroy(cachedChunk);
+            }
+
+            cachedChunks.Clear();
+            loadedChunks.Clear();
         }
 
-        private void FinishJobLoadingChunk() {
-            _chunkDataArray.Dispose();
-            chunksAreLoading = false;
-        }
+        private void TryToCacheChunksPool(IEnumerable<Chunk> chunks) {
+            var playerChunkPosition = GetPlayerChunkPosition();
 
-        private void LateUpdate() {
-            // _jobHandle.Complete();
+            foreach (var chunk in new List<Chunk>(chunks)) {
+                var chunkPos = GetChunkPosition(chunk.transform.localPosition);
+                var distance = Mathf.RoundToInt(
+                    Vector3.Distance(chunkPos, playerChunkPosition));
+
+                if (distance > config.unloadChunkDistance) {
+                    CacheChunk(chunk);
+                }
+            }
         }
 
         private void FixedUpdate() {
-            // var playerChunkPosition = GetPlayerChunkPosition();
-            //
-            // foreach (var chunk in new List<Chunk>(chunks.Values)) {
-            //     if (!chunk) {
-            //         continue;
-            //     }
-            //
-            //     if (Vector3.Distance(chunk.transform.localPosition / chunkSize, playerChunkPosition) >=
-            //         unloadChunkDistance) {
-            //         CacheChunk(chunk);
-            //     }
-            // }
-            //
-            // var maximumChunksCount = unloadChunkDistance * unloadChunkDistance * 2;
-            // if (chunks.Count < maximumChunksCount) {
-            //     SpawnChunksAroundAndLoad((int) playerChunkPosition.x, (int) playerChunkPosition.z, loadChunkDistance);
-            // }
+            LoadChunks();
+        }
 
+        private void LoadChunks() {
+            loadingChunks = loadingChunks.Where(chunk => !chunk.IsChunkReady).ToList();
 
-            // if (!_chunksAreLoading && !_jobsCompleted) {
-            //     StartJobLoadingChunk();
-            // }
+            if (readyToLoadChunks.Count == 0) {
+                return;
+            }
 
-            if (chunksAreLoading && _jobHandle.IsCompleted && !jobsCompleted) {
-                chunksAreLoading = false;
-                jobsCompleted = true;
-                _jobHandle.Complete();
-
-                Debug.Log("Jobs are completed");
-                foreach (var chunkData in _chunkDataArray) {
-                    // foreach (var keyValue in chunkData.VoxelData) {
-                    //     Debug.Log($"{keyValue.Key} = {keyValue.Value}");
-                    // }
-
-                    // Debug.Log(chunkData.data);
-                }
-
-                _chunkDataArray.Dispose();
+            while (loadingChunks.Count <= config.maximumParallelChunksLoading && readyToLoadChunks.Count > 0) {
+                var chunk = readyToLoadChunks.First();
+                loadingChunks.Add(chunk);
+                LoadChunk(chunk);
+                readyToLoadChunks.Remove(chunk);
             }
         }
 
@@ -234,12 +247,26 @@ namespace Terrain {
             Gizmos.DrawWireCube(chunkCenter, chunkScale);
         }
 
-        private void OnDrawGizmosSelected() {
+        private void OnDrawGizmos() {
+            if (!showChunksBoundingBox) {
+                return;
+            }
+
             Gizmos.color = Color.blue;
             Gizmos.DrawWireSphere(playerTransform.position, config.loadChunkDistance * config.chunkSize);
 
             Gizmos.color = Color.green;
-            foreach (var chunk in chunks.Values) {
+            foreach (var chunk in loadedChunks) {
+                DrawChunkBounds(chunk);
+            }
+
+            Gizmos.color = Color.yellow;
+            foreach (var chunk in loadingChunks) {
+                DrawChunkBounds(chunk);
+            }
+
+            Gizmos.color = Color.magenta;
+            foreach (var chunk in readyToLoadChunks) {
                 DrawChunkBounds(chunk);
             }
 
