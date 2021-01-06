@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -10,8 +13,48 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1971ff7c-ccc2-4318-99b8-c4782300dc0c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="1971ff7c-ccc2-4318-99b8-c4782300dc0c" name="Default Changelist" comment="New solutions with job system">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/JobHandleExtended.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/JobHandleExtended.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Terrain/Chunk.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Terrain/ChunkData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Terrain/Mesh.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Terrain/Mesh/ChunkGenerateMeshJob.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Terrain/Mesh/ChunkGenerateMeshJob.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Terrain/Voxel.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Terrain/Voxel/ChunkGenerateVoxelsJob.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Terrain/Voxel/VoxelData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Terrain/Voxel/VoxelData.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Resteria/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Resteria/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Resteria/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Resteria/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Resteria/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Resteria/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/TerrainEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/TerrainEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/CubeMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/CubeMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/GroundMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/GroundMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Chunk.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Chunk.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BasicMeshData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Terrain/Voxel/BasicMeshData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BasicMeshData.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Terrain/Voxel/BasicMeshData.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Chunk.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Chunk.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Terrain/Chunk.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ChunkData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ChunkData.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Terrain/ChunkData.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Direction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Terrain/Direction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Direction.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Terrain/Direction.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Terrain/ChunkGenerateVoxelsJob.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Terrain/ChunkGenerateVoxelsJob.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Terrain/Voxel/ChunkGenerateVoxelsJob.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Terrain/TerrainManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Terrain/TerrainManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/VoxelRender.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Terrain/Voxel/VoxelRender.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/VoxelRender.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Terrain/Voxel/VoxelRender.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/VoxelUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Terrain/Voxel/VoxelUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/VoxelUtils.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Terrain/Voxel/VoxelUtils.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/ForwardRenderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/ForwardRenderer.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/UniversalRP-HighQuality.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/UniversalRP-HighQuality.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,23 +65,50 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask@da0e654e7d/Runtime/UniTask.Run.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask@da0e654e7d/Runtime/UniTask.Factory.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/2f/23feae5f/Component.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CB77D76F-0E67-4D3D-A5F8-C94ADDC0E0A6/7a/e10f1c7e/WaitForSecondsRealtime.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4BEC26B5-CBC7-4715-8442-F1499E984732/19/d4b3c72c/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/2b/d11cf773/Transform.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Resteria/Resteria/Assets/Scripts/Chunk.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4BEC26B5-CBC7-4715-8442-F1499E984732/05/64b1ecf4/Task.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/b5/07eae126/Time.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Chunk.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CB77D76F-0E67-4D3D-A5F8-C94ADDC0E0A6/c7/1ed62ef4/WaitForFixedUpdate.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CB77D76F-0E67-4D3D-A5F8-C94ADDC0E0A6/a5/69ddebc2/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collections@0.12.0-preview.13/Unity.Collections/FixedStringAppendMethods.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F6747DE9-0205-433F-84EB-50C1DA278135/ad/2b837d4e/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E414E10B-FE5F-4572-9FF1-22F3359DE21B/5e/fccd807d/IJobExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/bb/719799d3/Gizmos.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/e9/d3b5829e/Object.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/08/3a9993e5/Mesh.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/2e/d007a8b0/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/0f/08c30298/Component.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/82/77a5b820/IJobParallelForExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4BEC26B5-CBC7-4715-8442-F1499E984732/6e/718b9a4e/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collections@0.12.0-preview.13/Unity.Collections/UnsafeList.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/44/ec1fc529/IJobParallelFor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CB77D76F-0E67-4D3D-A5F8-C94ADDC0E0A6/25/4057248c/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F6747DE9-0205-433F-84EB-50C1DA278135/90/28b3d30c/ConditionalAttribute.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask@da0e654e7d/Runtime/UniTask.Factory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E414E10B-FE5F-4572-9FF1-22F3359DE21B/70/5e4940c9/WriteOnlyAttribute.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/a2/815f80fb/NativeArray`1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CB77D76F-0E67-4D3D-A5F8-C94ADDC0E0A6/5e/ed5d0f6d/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/48020190-8ED9-4DDA-A056-1E2E6E0DDD4E/5d/3eae91de/Queue`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/9c/285e0cb3/JobHandle.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F6747DE9-0205-433F-84EB-50C1DA278135/4e/f373142c/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collections@0.12.0-preview.13/Unity.Collections/NativeList.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/2f/23feae5f/Component.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collections@0.12.0-preview.13/Unity.Collections/NativeQueue.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4BEC26B5-CBC7-4715-8442-F1499E984732/05/64b1ecf4/Task.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/b5/07eae126/Time.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E414E10B-FE5F-4572-9FF1-22F3359DE21B/b1/9e0a5d03/Allocator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/CB77D76F-0E67-4D3D-A5F8-C94ADDC0E0A6/14/2869b47e/NativeSlice`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/862B9365-843C-4BF1-BA93-210C124BB523/1d/64ff3dd2/Queue`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Terrain/ChunkData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Terrain/Chunk.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/08/3a9993e5/Mesh.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4BEC26B5-CBC7-4715-8442-F1499E984732/4c/74a43fa5/Action.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04258D1C-DC10-4424-8C2A-17A6A31A3CF7/0f/08c30298/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4BEC26B5-CBC7-4715-8442-F1499E984732/86/6653b0e2/Int32.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4BEC26B5-CBC7-4715-8442-F1499E984732/cb/d9ee10b1/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Terrain.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Terrain/TerrainManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -46,20 +116,44 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/MeshData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Block.cs" />
         <option value="$PROJECT_DIR$/Assets/Editor/ChunkScriptEditor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Voxel.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Direction.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BasicMeshData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/VoxelData.cs" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/Assets/Editor/TerrainEditor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/VoxelRender.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Chunk.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Terrain.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TerrainUpdateJob.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/terrain/TerrainManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/terrain/Terrain.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/terrain/TerrainUpdateJob.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Terrain/TerrainUpdateJob.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Voxel.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/VoxelConsts.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/VoxelUtils.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/VoxelData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/VoxelRender.cs" />
+        <option value="$PROJECT_DIR$/Library/PackageCache/com.unity.collections@0.12.0-preview.13/Unity.Collections/NativeList.cs" />
+        <option value="$PROJECT_DIR$/Assembly-CSharp.csproj" />
+        <option value="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/JobHandleExtended.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ChunkData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Chunk.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Terrain/ChunkGenerateVoxelsJob.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Terrain/Voxel/VoxelData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Terrain/Direction.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Terrain/Mesh/ChunkGenerateMeshJob.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Terrain/ChunkData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Terrain/Chunk.cs" />
+        <option value="$PROJECT_DIR$/Assets/Editor/TerrainEditor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Terrain/Voxel/VoxelRender.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Terrain/Voxel/ChunkGenerateVoxelsJob.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Terrain/TerrainManager.cs" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="1imjCdooWzoTLOVT1EYiTcuMrLu" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -71,7 +165,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="discord-application" />
+    <property name="settings.editor.selected.configurable" value="SolutionBuilderGeneralOptionsPageId" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
@@ -83,10 +177,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="25360">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="25360" />
       <option name="selectedOptions">
         <set />
       </option>
@@ -114,8 +208,38 @@
       <workItem from="1602605340225" duration="3146000" />
       <workItem from="1602609067773" duration="3191000" />
       <workItem from="1602616916571" duration="444000" />
-      <workItem from="1602663731675" duration="10500000" />
+      <workItem from="1602663731675" duration="15280000" />
+      <workItem from="1602684275352" duration="13075000" />
+      <workItem from="1602758082736" duration="11939000" />
+      <workItem from="1603286757145" duration="5450000" />
+      <workItem from="1609867938481" duration="10130000" />
+      <workItem from="1609878708261" duration="950000" />
+      <workItem from="1609880131620" duration="2217000" />
+      <workItem from="1609936909818" duration="77000" />
+      <workItem from="1609937010929" duration="21589000" />
     </task>
+    <task id="LOCAL-00001" summary="Init">
+      <created>1602676756445</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1602676756445</updated>
+    </task>
+    <task id="LOCAL-00002" summary="UniTask implementation for optimization">
+      <created>1602698529719</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1602698529719</updated>
+    </task>
+    <task id="LOCAL-00003" summary="New solutions with job system">
+      <created>1603297219509</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1603297219509</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
@@ -134,6 +258,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Init" />
+    <MESSAGE value="UniTask implementation for optimization" />
+    <MESSAGE value="New solutions with job system" />
+    <option name="LAST_COMMIT_MESSAGE" value="New solutions with job system" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="160" key="#Plugins" timestamp="1602520652228">
@@ -144,38 +272,46 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="718" y="379" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602536559479" />
-    <state width="1877" height="375" key="GridCell.Tab.0.bottom" timestamp="1602589162077">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="3397" height="519" key="GridCell.Tab.0.bottom" timestamp="1609953255099">
+      <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602589162077" />
-    <state width="1877" height="375" key="GridCell.Tab.0.center" timestamp="1602589162077">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="3397" height="519" key="GridCell.Tab.0.bottom/0.0.3440.1400/3440.260.1920.1040@0.0.3440.1400" timestamp="1609953255099" />
+    <state width="3397" height="519" key="GridCell.Tab.0.center" timestamp="1609953255099">
+      <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602589162077" />
-    <state width="1877" height="375" key="GridCell.Tab.0.left" timestamp="1602589162077">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="3397" height="519" key="GridCell.Tab.0.center/0.0.3440.1400/3440.260.1920.1040@0.0.3440.1400" timestamp="1609953255099" />
+    <state width="3397" height="519" key="GridCell.Tab.0.left" timestamp="1609953255099">
+      <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602589162077" />
-    <state width="1877" height="375" key="GridCell.Tab.0.right" timestamp="1602589162077">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="3397" height="519" key="GridCell.Tab.0.left/0.0.3440.1400/3440.260.1920.1040@0.0.3440.1400" timestamp="1609953255099" />
+    <state width="3397" height="519" key="GridCell.Tab.0.right" timestamp="1609953255099">
+      <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602589162077" />
-    <state width="1877" height="375" key="GridCell.Tab.1.bottom" timestamp="1602589166670">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="3397" height="519" key="GridCell.Tab.0.right/0.0.3440.1400/3440.260.1920.1040@0.0.3440.1400" timestamp="1609953255099" />
+    <state width="3397" height="519" key="GridCell.Tab.1.bottom" timestamp="1609953264965">
+      <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602589166670" />
-    <state width="1877" height="375" key="GridCell.Tab.1.center" timestamp="1602589166670">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="3397" height="519" key="GridCell.Tab.1.bottom/0.0.3440.1400/3440.260.1920.1040@0.0.3440.1400" timestamp="1609953264965" />
+    <state width="3397" height="519" key="GridCell.Tab.1.center" timestamp="1609953264965">
+      <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602589166670" />
-    <state width="1877" height="375" key="GridCell.Tab.1.left" timestamp="1602589166670">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="3397" height="519" key="GridCell.Tab.1.center/0.0.3440.1400/3440.260.1920.1040@0.0.3440.1400" timestamp="1609953264965" />
+    <state width="3397" height="519" key="GridCell.Tab.1.left" timestamp="1609953264965">
+      <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602589166670" />
-    <state width="1877" height="375" key="GridCell.Tab.1.right" timestamp="1602589166670">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="3397" height="519" key="GridCell.Tab.1.left/0.0.3440.1400/3440.260.1920.1040@0.0.3440.1400" timestamp="1609953264965" />
+    <state width="3397" height="519" key="GridCell.Tab.1.right" timestamp="1609953264965">
+      <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602589166670" />
+    <state width="3397" height="519" key="GridCell.Tab.1.right/0.0.3440.1400/3440.260.1920.1040@0.0.3440.1400" timestamp="1609953264965" />
     <state width="1877" height="375" key="GridCell.Tab.2.bottom" timestamp="1602589161885">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -208,33 +344,50 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.3.right/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602589161886" />
-    <state x="765" y="192" key="RiderGenerateDialog" timestamp="1602589418248">
+    <state x="1371" y="258" key="RiderGenerateDialog" timestamp="1609951420580">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="765" y="192" key="RiderGenerateDialog/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602771339694" />
+    <state x="1371" y="258" key="RiderGenerateDialog/0.0.3440.1400/3440.260.1920.1040@0.0.3440.1400" timestamp="1609951420580" />
+    <state x="3480" y="556" width="1240" height="718" key="SettingsEditor" timestamp="1603287769849">
+      <screen x="3440" y="260" width="1920" height="1040" />
+    </state>
+    <state x="40" y="296" width="1240" height="718" key="SettingsEditor/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602690823079" />
+    <state x="3480" y="556" key="SettingsEditor/0.0.3440.1400/3440.260.1920.1040@3440.260.1920.1040" timestamp="1603287769849" />
+    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1602771359979">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="192" key="RiderGenerateDialog/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602589418248" />
-    <state x="40" y="296" width="1240" height="718" key="SettingsEditor" timestamp="1602664811956">
+    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602771359979" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1602698533265">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="40" y="296" width="1240" height="718" key="SettingsEditor/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602664811956" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1602605265436">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602605265436" />
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1602673579027">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602698533265" />
+    <state x="165" y="124" width="3111" height="1153" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1609870088689">
+      <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602673579027" />
+    <state x="165" y="124" width="3111" height="1153" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.3440.1400/3440.260.1920.1040@0.0.3440.1400" timestamp="1609870088689" />
     <state x="833" y="253" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1602605270424">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="833" y="253" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602605270424" />
-    <state x="627" y="193" width="666" height="654" key="find.popup" timestamp="1602664819429">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="1123" y="260" width="1194" height="881" key="find.popup" timestamp="1609955126279">
+      <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state x="627" y="193" width="666" height="654" key="find.popup/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602664819429" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602664911573">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="627" y="193" width="666" height="654" key="find.popup/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602759305343" />
+    <state x="1123" y="260" width="1194" height="881" key="find.popup/0.0.3440.1400/3440.260.1920.1040@0.0.3440.1400" timestamp="1609955126279" />
+    <state x="4063" y="485" width="672" height="678" key="search.everywhere.popup" timestamp="1603295187507">
+      <screen x="3440" y="260" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1602664911573" />
+    <state x="4063" y="485" width="672" height="678" key="search.everywhere.popup/0.0.3440.1400/3440.260.1920.1040@3440.260.1920.1040" timestamp="1603295187507" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="UNITY_DEBUG_RUN_CONFIGURATION">
+        <watch expression="position" language="C#" />
+        <watch expression="transform.localPosition" language="C#" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
