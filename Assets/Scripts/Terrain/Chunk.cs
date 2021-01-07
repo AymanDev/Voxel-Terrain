@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using Terrain.ECS;
 using Terrain.Voxel;
 using Unity.Collections;
+using Unity.Entities;
 using Unity.Jobs;
 using UnityEngine;
 
@@ -76,6 +78,5 @@ namespace Terrain {
         private void GenerateMesh() {
             voxelRender.GenerateMesh(chunkData);
         }
-        
     }
 }
