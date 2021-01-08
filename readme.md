@@ -24,5 +24,7 @@ Also there not so much features.
 * Add support for colored voxels 
 * Add support for textured voxels
 * Add different mesh generation types a unlike cubes right now
+* Add ability for custom terrain not only procedurally generated one
+  * Implement tools for work with type of terrains
 
 
