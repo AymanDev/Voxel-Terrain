@@ -23,5 +23,6 @@ Also there not so much features.
 ### Goals to achieve:
 * Add support for colored voxels 
 * Add support for textured voxels
+* Add different mesh generation types a unlike cubes right now
 
 
