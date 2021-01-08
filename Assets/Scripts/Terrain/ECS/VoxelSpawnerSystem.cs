@@ -2,14 +2,15 @@
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
-using Unity.Rendering;
 using Unity.Transforms;
 using UnityEngine;
+using UnityEngine.Profiling;
 
 namespace Terrain.ECS {
     public class VoxelSpawnerSystem : SystemBase {
         private BeginSimulationEntityCommandBufferSystem _beginSimulationSystem;
         private EntityQuery _voxelQuery;
+        private EntityQuery _spawnerQuery;
 
         protected override void OnCreate() {
             base.OnCreate();
@@ -19,31 +20,37 @@ namespace Terrain.ECS {
                     ComponentType.ReadOnly<Voxel>(),
                     ComponentType.ReadOnly<Translation>()
             );
+            _spawnerQuery = GetEntityQuery(
+                    typeof(VoxelSpawner),
+                    ComponentType.Exclude<VoxelSpawnerDoneTag>()
+            );
         }
 
+
         protected override void OnUpdate() {
-            
-            
-                        
+            if (_spawnerQuery.IsEmpty) {
+                return;
+            }
+
+            Profiler.BeginSample("System preparations");
             var ecb = _beginSimulationSystem.CreateCommandBuffer().AsParallelWriter();
             var positions = _voxelQuery.ToComponentDataArray<Translation>(Allocator.TempJob);
+            Profiler.EndSample();
 
             Entities
+                    .WithNone<VoxelSpawnerDoneTag>()
                     .WithReadOnly(positions)
                     .WithDisposeOnCompletion(positions)
                     .WithoutBurst()
-                    // .WithDisposeOnCompletion(typeChunks)
                     .ForEach((
                             Entity spawnerEntity,
                             int entityInQueryIndex,
                             ref VoxelSpawner spawner,
                             in LocalToWorld localToWorld
                     ) => {
-                        if (spawner.spawnedVoxelsCount >= spawner.maxVoxels) {
-                            return;
-                        }
                         // var positionType = GetComponentTypeHandle<Translation>();
 
+                        Profiler.BeginSample("Spawning voxels");
                         for (var x = -spawner.maxDistanceFromSpawner; x < spawner.maxDistanceFromSpawner; x++) {
                             for (var z = -spawner.maxDistanceFromSpawner; z < spawner.maxDistanceFromSpawner; z++) {
                                 var position = new int3(localToWorld.Position +
@@ -55,7 +62,6 @@ namespace Terrain.ECS {
                                 position.y = GetYForVoxel(position.x, position.z, 0.01f);
 
                                 var instance = ecb.Instantiate(entityInQueryIndex, spawner.prefab);
-                                spawner.spawnedVoxelsCount += 1;
                                 ecb.SetComponent(entityInQueryIndex, instance, new Translation() {
                                         Value = position
                                 });
@@ -64,13 +70,11 @@ namespace Terrain.ECS {
                                         new VoxelStatus() {status = VoxelStatus.Status.Generated});
                             }
                         }
-                    }).ScheduleParallel();
 
-            // Entities.WithName("Spawner").ForEach((
-            //         int entityInQueryIndex,
-            //         ref VoxelSpawner spawner,
-            //         in LocalToWorld localToWorld
-            // ) => { }).WithDisposeOnCompletion(positions).ScheduleParallel();
+                        ecb.AddComponent(entityInQueryIndex, spawnerEntity, new VoxelSpawnerDoneTag());
+
+                        Profiler.EndSample();
+                    }).ScheduleParallel();
             _beginSimulationSystem.AddJobHandleForProducer(Dependency);
         }
 

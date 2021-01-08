@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Terrain.Voxel;
 using Unity.Collections;
 using Unity.Entities;
@@ -7,8 +6,7 @@ using Unity.Mathematics;
 using Unity.Rendering;
 using Unity.Transforms;
 using UnityEngine;
-using UnityEngine.Rendering;
-using Debug = System.Diagnostics.Debug;
+using UnityEngine.Profiling;
 
 namespace Terrain.ECS {
     public class VoxelMeshGeneratorSystem : SystemBase {
@@ -34,10 +32,13 @@ namespace Terrain.ECS {
             }
 
 
+            Profiler.BeginSample("System preparations");
             var entities = _voxelMeshGenerationQuery.ToEntityArray(Allocator.TempJob);
             var voxels = _voxelMeshGenerationQuery.ToComponentDataArray<Voxel>(Allocator.TempJob);
             var translations = _voxelMeshGenerationQuery.ToComponentDataArray<Translation>(Allocator.TempJob);
+            Profiler.EndSample();
 
+            Profiler.BeginSample("Mesh generation");
             foreach (var entity in entities) {
                 var translation = GetComponent<Translation>(entity);
 
@@ -72,6 +73,8 @@ namespace Terrain.ECS {
                 verts.Dispose();
                 tris.Dispose();
             }
+
+            Profiler.EndSample();
 
             entities.Dispose();
             voxels.Dispose();

@@ -24,7 +24,6 @@ namespace Terrain.ECS {
                     prefab = conversionSystem.GetPrimaryEntity(prefab),
                     maxDistanceFromSpawner = maxDistanceFromSpawner,
                     maxVoxels = 1024,
-                    spawnedVoxelsCount = 0
             });
         }
     }
