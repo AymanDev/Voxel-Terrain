@@ -20,7 +20,7 @@ Also there not so much features.
 * Move to ECS *(kinda useless right now because of Hybrid Renderer V2 is kinda slow right now)*
   * Optimize terrain systems
 * Optimize chunk spawn system *(right now calculation for loading or unloading chunks is unnecessary hard and slow)*
-#### Goals to achieve:
+### Goals to achieve:
 * Add support for colored voxels 
 * Add support for textured voxels
 
