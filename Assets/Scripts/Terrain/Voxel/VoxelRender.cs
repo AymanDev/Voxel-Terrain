@@ -74,7 +74,7 @@ namespace Terrain.Voxel {
             // meshCollider.sharedMesh = Mesh;
         }
 
-        public static (List<Vector3> vertices, ICollection<int> triangles) GenerateVoxelMesh(List<VoxelData> voxels) {
+        public static (List<Vector3> vertices, ICollection<int> triangles) GenerateVoxelsMesh(List<VoxelData> voxels) {
             var verts = new List<Vector3>();
             var tris = new List<int>();
 

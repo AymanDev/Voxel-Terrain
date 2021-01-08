@@ -13,7 +13,7 @@ namespace Terrain.Mesh {
         [ReadOnly] public NativeList<VoxelData> voxels;
 
         public void Execute() {
-            var (verts, tris) = VoxelRender.GenerateVoxelMesh(new List<VoxelData>(voxels.ToArray()));
+            var (verts, tris) = VoxelRender.GenerateVoxelsMesh(new List<VoxelData>(voxels.ToArray()));
             triangles.CopyFrom(tris.ToArray());
             vertices.CopyFrom(verts.ToArray());
         }
