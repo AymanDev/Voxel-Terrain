@@ -3,11 +3,11 @@ This is my experimental project on creating Voxel Terrain tool.
 I went through some iterations already from Object oriented to Jobified generation system.
 Right now this tool able to generate voxels and mesh for chunks. 
 
-#### !WARNING!
+## !WARNING!
 This is not ready-production tool. This project using a lot experimental and preview packages.
 Also there not so much features.
 
-#### Completed Goals:
+### Completed Goals:
 - [X] Custom chunk size by all coordinates 
 - [X] Jobified voxel generation
 - [X] Simple customization for terrain generation
