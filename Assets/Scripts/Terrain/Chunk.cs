@@ -1,13 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Terrain.Voxel;
 using Unity.Collections;
 using Unity.Jobs;
 using UnityEngine;
 
-namespace Terrain {
+namespace Terrain
+{
     [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
-    public class Chunk : MonoBehaviour {
-        [SerializeField] [ReadOnly] private VoxelRender voxelRender;
+    public class Chunk : MonoBehaviour
+    {
+        [SerializeField] [ReadOnly] private ChunkRenderer chunkRenderer;
         [SerializeField] private MeshCollider meshCollider;
 
         private JobHandleExtended _jobHandle;
@@ -19,38 +22,52 @@ namespace Terrain {
 
         [SerializeField] [ReadOnly] private ChunkData chunkData;
 
+        public ChunkData ChunkData => chunkData;
+
         private bool _isVoxelsReady;
 
-        public bool IsChunkReady => _isVoxelsReady && voxelRender.IsRenderReady;
+        public bool IsVoxelsReady => _isVoxelsReady;
+        public bool IsChunkReady => _isVoxelsReady && chunkRenderer.IsRenderReady;
 
-        public bool IsChunkActive => voxelRender.meshRenderer.enabled;
+        public bool IsChunkActive => chunkRenderer.meshRenderer.enabled;
 
-        public void UpdateChunk(float noiseScale, int chunkSize, int chunkHeight) {
+        public Vector3 chunkPosition;
+
+        public void UpdateChunk(float noiseScale, int chunkSize, int chunkHeight)
+        {
             _isVoxelsReady = false;
 
             chunkData = new ChunkData(chunkSize, chunkHeight);
             _voxels = new NativeList<VoxelData>(Allocator.TempJob);
 
-            var job = new ChunkGenerateVoxelsJob() {
+            var localPosition = transform.localPosition;
+            var job = new ChunkGenerateVoxelsJob()
+            {
                 voxelData = _voxels,
                 noiseScale = noiseScale,
                 chunkSize = chunkSize,
                 chunkHeight = chunkHeight,
-                position = transform.localPosition
+                position = localPosition
             };
             _jobHandle = new JobHandleExtended(job.Schedule());
+
+            chunkPosition = localPosition;
         }
 
-        private void Update() {
-            if (IsChunkReady && !IsChunkActive) {
+        private void Update()
+        {
+            if (IsChunkReady && !IsChunkActive)
+            {
                 ActivateChunk();
             }
 
-            if (!_voxels.IsCreated) {
+            if (!_voxels.IsCreated)
+            {
                 return;
             }
 
-            if (_jobHandle.Status == JobHandleStatus.AwaitingCompletion) {
+            if (_jobHandle.Status == JobHandleStatus.AwaitingCompletion)
+            {
                 _jobHandle.Complete();
 
                 chunkData.Voxels = new List<VoxelData>(_voxels.ToArray());
@@ -61,21 +78,23 @@ namespace Terrain {
             }
         }
 
-        public void DeactivateChunk() {
-            voxelRender.meshRenderer.enabled = false;
+        public void DeactivateChunk()
+        {
+            chunkRenderer.meshRenderer.enabled = false;
             name = "Chunk (cached)";
             _isVoxelsReady = false;
-            voxelRender.ResetRender();
+            chunkRenderer.ResetRender();
         }
 
-        private void ActivateChunk() {
-            voxelRender.meshRenderer.enabled = true;
+        private void ActivateChunk()
+        {
+            chunkRenderer.meshRenderer.enabled = true;
             name = "Chunk (active)";
         }
 
-        private void GenerateMesh() {
-            voxelRender.GenerateMesh(chunkData);
+        private void GenerateMesh()
+        {
+            chunkRenderer.StartMeshTask(chunkData);
         }
-        
     }
 }
